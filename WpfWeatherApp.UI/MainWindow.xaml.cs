@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfWeatherApp.UI.Controllers;
 
 namespace WpfWeatherApp.UI
 {
@@ -20,9 +21,10 @@ namespace WpfWeatherApp.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(WeatherController controller)
         {
             InitializeComponent();
+            this.DataContext = controller;
         }
     }
 }

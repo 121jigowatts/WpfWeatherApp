@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WeatherServices;
+using WpfWeatherApp.UI.Controllers;
 
 namespace WpfWeatherApp.UI
 {
@@ -13,5 +15,16 @@ namespace WpfWeatherApp.UI
     /// </summary>
     public partial class App : Application
     {
+        private WeatherController controller;
+
+        private void OnApplicationStartup(object sender, StartupEventArgs e) 
+        {
+            var service = new WeatherService();
+            controller = new WeatherController(service);
+            MainWindow = new MainWindow(controller);
+            MainWindow.Show();
+            controller.OnLoad();
+        }
+
     }
 }

@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\TodayWeatherViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -61,6 +62,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\WeatherController.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -92,6 +94,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherModels\WeatherModels.csproj">
+      <Project>{504601c3-10b2-4820-a97b-4cafcaf43c31}</Project>
+      <Name>WeatherModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WeatherServiceInterfaces\WeatherServiceInterfaces.csproj">
+      <Project>{2c367fc2-c897-4562-a8a6-0f1acb2af4cc}</Project>
+      <Name>WeatherServiceInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WeatherServices\WeatherServices.csproj">
+      <Project>{760d5826-7e5f-4806-9d3e-8401cfba0232}</Project>
+      <Name>WeatherServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JsonParser;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -19,7 +20,8 @@ namespace WpfWeatherApp.UI
 
         private void OnApplicationStartup(object sender, StartupEventArgs e) 
         {
-            var service = new WeatherService();
+            var jsonParser = new DynamicJsonPaser();
+            var service = new WeatherService(jsonParser);
             controller = new WeatherController(service);
             MainWindow = new MainWindow(controller);
             MainWindow.Show();

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherModels;
 
 namespace WpfWeatherApp.UI.ViewModels
 {
@@ -14,6 +15,7 @@ namespace WpfWeatherApp.UI.ViewModels
         private string _telop;
         private string _temperatureMax;
         private string _temperatureMin;
+        private Image _image;
 
         public string DateLabel
         {
@@ -90,7 +92,21 @@ namespace WpfWeatherApp.UI.ViewModels
                 }
             }
         }
-
+        public Image Image
+        {
+            get
+            {
+                return _image;
+            }
+            set
+            {
+                if (_image != value)
+                {
+                    _image = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Image"));
+                }
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
     }
 }

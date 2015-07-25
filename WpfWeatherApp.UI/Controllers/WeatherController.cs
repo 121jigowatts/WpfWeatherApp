@@ -31,7 +31,8 @@ namespace WpfWeatherApp.UI.Controllers
                 Date = data.Date,
                 Telop = data.Telop,
                 TemperatureMax = data.TemperatureMax,
-                TemperatureMin = data.TemperatureMin
+                TemperatureMin = data.TemperatureMin,
+                Image = data.Image
             };
         }
 

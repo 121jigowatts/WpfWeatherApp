@@ -96,6 +96,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JsonParserInterface\JsonParserInterface.csproj">
+      <Project>{82447e15-2d66-4cb9-800b-14f0301b946b}</Project>
+      <Name>JsonParserInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonParser\JsonParser.csproj">
+      <Project>{1e476461-fd4c-4c95-ba69-dd56903ef4fb}</Project>
+      <Name>JsonParser</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeatherModels\WeatherModels.csproj">
       <Project>{504601c3-10b2-4820-a97b-4cafcaf43c31}</Project>
       <Name>WeatherModels</Name>

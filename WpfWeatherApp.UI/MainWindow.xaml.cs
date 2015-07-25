@@ -25,6 +25,13 @@ namespace WpfWeatherApp.UI
         {
             InitializeComponent();
             this.DataContext = controller;
+
+            MouseLeftButtonDown += (o, e) => DragMove();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

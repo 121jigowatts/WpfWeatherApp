@@ -1,4 +1,6 @@
 ﻿using JsonParser;
+using JsonParserInterface;
+using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -6,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WeatherServiceInterfaces;
 using WeatherServices;
 using WpfWeatherApp.UI.Controllers;
 
@@ -16,16 +19,20 @@ namespace WpfWeatherApp.UI
     /// </summary>
     public partial class App : Application
     {
-        private WeatherController controller;
-
+        //private WeatherController controller;
+        
         private void OnApplicationStartup(object sender, StartupEventArgs e) 
         {
-            var jsonParser = new DynamicJsonPaser();
-            var service = new WeatherService(jsonParser);
-            controller = new WeatherController(service);
-            MainWindow = new MainWindow(controller);
+            var c = new UnityContainer();
+            c.RegisterType<IJsonParser, DynamicJsonPaser>();
+            c.RegisterType<IWeatherService, WeatherService>();
+            c.RegisterType<WeatherController>();
+            c.RegisterType<MainWindow>();
+
+            MainWindow = c.Resolve<MainWindow>();
             MainWindow.Show();
-            controller.OnLoad();
+            
+            ((WeatherController)MainWindow.DataContext).OnLoad();
         }
 
     }

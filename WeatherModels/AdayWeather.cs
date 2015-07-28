@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherModels
 {
-    public class TodayWeather : IDayWeather
+    public class ADayWeather : IDayWeather
     {
         public string DateLabel { get; set; }
         public string Date { get; set; }

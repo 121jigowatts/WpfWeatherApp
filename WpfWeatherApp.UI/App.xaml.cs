@@ -25,6 +25,7 @@ namespace WpfWeatherApp.UI
         {
             var c = new UnityContainer();
             c.RegisterType<IJsonParser, DynamicJsonPaser>();
+            c.RegisterType<IWeatherDataProviderFactory, LWWSProviderFactory>();
             c.RegisterType<IWeatherService, WeatherService>();
             c.RegisterType<WeatherController>();
             c.RegisterType<MainWindow>();

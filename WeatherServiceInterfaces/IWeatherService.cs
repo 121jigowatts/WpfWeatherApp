@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using WeatherModels;
 
 namespace WeatherServiceInterfaces
@@ -11,4 +7,10 @@ namespace WeatherServiceInterfaces
     {
         IDayWeather GetTodayWeather();
     }
+
+    public interface IWeatherDataProvider
+    {
+        Stream GetWeatherData();
+    }
+
 }
